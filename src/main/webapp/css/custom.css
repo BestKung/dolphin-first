@@ -1,0 +1,36 @@
+.btncustom{
+    display: inline-block;
+}
+.btn-custom-sky{
+    padding: 5px 30px ;
+    background: #2196f3;
+    color: white;
+    border-radius: 5px;
+    border: solid 2px white;   
+}
+.btn-custom-sky:hover{
+    background: #81d4fa;
+    color: white;
+}
+.btn-custom-sky:active{
+    position: relative;
+    top: 1px;
+}
+.btn-custom-delete{
+    padding: 7px 10px ;
+    background: #f48fb1;
+    color: white;
+    border-radius: 5px;
+}
+.btn-custom-delete:hover{
+    background: #ec407a;
+}
+.btn-custom-delete:active{
+    position: relative;
+    top: 1px;
+}
+.necessary{
+    font-size: 20px;
+    color: RED;
+}
+

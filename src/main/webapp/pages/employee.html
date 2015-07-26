@@ -1,0 +1,234 @@
+<div class="container">
+    <div class="panel panel-info" id="panel-top">
+        <div class="panel-heading">
+            <div class="h1">
+                Employee Information
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">ID : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" disabled>
+                    </div>
+
+                    <label class="col-md-2 control-label"><span class="necessary">*</span> E-mail : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="employee.email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label"><span class="necessary">*</span> Password : </label>
+                    <div class="col-md-3">
+                        <input type="password" class="form-control" ng-model="employee.password">
+                    </div>
+                    
+                    <label class="col-md-2 control-label"><span class="necessary">*</span> Confirm Password : </label>
+                    <div class="col-md-3">
+                        <input type="password" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label"><span class="necessary">*</span> Personal ID : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="employee.pid">
+                    </div>
+
+                    <label class="col-md-2 control-label"><span class="necessary">*</span> Name TH : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="employee.nameTh">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Name ENG : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="employee.nameEng">
+                    </div>
+
+                    <label class="col-md-2 control-label">Birth Date : </label>
+                    <div class="col-md-3">
+                        <input class="form-control datepicker" ng-model="employee.birthDate">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Sex : </label>
+                    <div class="col-md-3">
+                        <select class="form-control" ng-model="employee.sex">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+
+                    <label class="col-md-2 control-label" ><span class="necessary">*</span> Blood : </label>
+                    <div class="col-md-3">
+                        <select class="form-control" ng-model="employee.blood">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="O">O</option>
+                            <option value="AB">AB</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Marry Status : </label>
+                    <div class="col-md-3">
+                        <select class="form-control" ng-model="employee.marryStatus">
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Widowed">Widowed</option>
+                            <option value="divorce">Divorce</option>
+                            <option value="Live Apart">Live Apart</option>
+                        </select>
+                    </div>
+
+                    <label class="col-md-2 control-label"><span class="necessary">*</span> Nation : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="employee.nation">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label"><span class="necessary">*</span> Race : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="employee.race">
+                    </div>
+
+                    <label class="col-md-2 control-label">Soldier Status : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="employee.soldierStatus">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Address Of Personal : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="employee.addressOfPid">
+                    </div>
+
+                    <label class="col-md-2 control-label"><span class="necessary">*</span> Current Address : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="employee.currentAddress">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Tel : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="employee.tel">
+                    </div>
+
+                    <label class="col-md-2 control-label"><span class="necessary">*</span> Mobile : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="employee.mobile">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Department : </label>
+                    <div class="col-md-3">
+                        <select  class="form-control" ng-model="employee.department">
+                            <option value="{{dep}}" ng-repeat="dep in departments.content">{{dep.name}}</option>
+                        </select>
+                    </div>    
+
+                    <label class="col-md-2 control-label"><span class="necessary">*</span> Start Work : </label>
+                    <div class="col-md-3">
+                        <input class="form-control datepicker" ng-model="employee.startWork">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">End Work : </label>
+                    <div class="col-md-3">
+                        <input class="form-control datepicker" ng-model="employee.endWork">
+                    </div>
+
+                    <label class="col-md-2 control-label"><span class="necessary">*</span> Work Status : </label>
+                    <div class="col-md-3">
+                        <select class="form-control" ng-model="employee.workStatus">
+                                        <option value="Nomal">Nomal</option>
+                                        <option value="Suspension">Suspension</option>
+                                        <option value="Resigned">Resigned</option>
+                                    </select>
+                    </div>
+                </div>
+                <div style="width: 200px;height: 250px; background: plum;border-radius: 5px;">
+                    
+                </div>
+               <!--<img src="data:image/jpeg;base64,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" >-->
+                    <input type="file">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="h1">
+                            Authority
+                        </div>
+                    </div>  
+                    <div class="panel-body">
+                        <div class="col-md-3" ng-repeat="rol in authoritys.content">
+                            <label><input type="checkbox" checklist-model="" checklist-value="rol"> {{rol.role}}</label>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="h1">
+                        Bank
+                    </div>
+                </div>  
+                <div class="panel-body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Bank Name : </label>
+                            <div class="col-md-3">
+                                <input class="form-control">
+                            </div>    
+
+                            <label class="col-md-2 control-label">Account Name : </label>
+                            <div class="col-md-3">
+                                <input class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Account Number : </label>
+                            <div class="col-md-3">
+                                <input class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="h1">
+                        Contact
+                    </div>
+                </div>  
+                <div class="panel-body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Name : </label>
+                            <div class="col-md-3">
+                                <input class="form-control">
+                            </div>    
+
+                            <label class="col-md-2 control-label">Relation : </label>
+                            <div class="col-md-3">
+                                <input class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Tel : </label>
+                            <div class="col-md-3">
+                                <input class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="col-md-offset-11">
+                 <input type="submit" class="btn btn-success" value="Save" ng-click="saveEmployee()">
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+

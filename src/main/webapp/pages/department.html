@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="row">
+        <div class="panel panel-info" id="panel-top">
+            <div class="panel-heading">
+                <div class="h1">
+                    Department
+                </div> 
+            </div>
+            <div class="panel-body">
+                <div class="col-md-offset-10">
+                    <div id="growl-custom"></div>
+                </div>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">ID : </label>
+                        <div class="col-md-3">
+                            <input class="form-control" ng-model="department.id" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Department Name : </label>
+                        <div class="col-md-3">
+                            <input class="form-control" ng-model="department.name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-10">
+                            <input type="submit" class="btn btn-success" value="Save" style="padding: 6px 40px" ng-click="saveDepartment()">
+                            <input type="submit" class="control-label btn btn-warning" value="Clear" style="padding: 6px 40px" ng-click="clear()">
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default" style="margin-top: 40px;">
+                        <div class="panel-heading">
+                            Information
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th><p class="kick">ID</p></th>
+                                    <th><p class="kick">Department Name</p></th>
+                                    <th><p class="kick">Action</p></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="dep in departments.content">
+                                            <td><p class="kick">{{dep.id}}</p></td>
+                                            <td><p class="kick">{{dep.name}}</p></td>
+                                            <td>
+                                                <input type="submit" class="btn btn-primary" value="Update" style="padding: 6px 40px" ng-click="actionUpdate(dep.id, dep.name)">
+                                                <input type="submit" class="btn btn-danger" value="Delete" style="padding: 6px 40px" data-toggle="modal" data-target="#model-delete" ng-click="actionDelete(dep)">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="model-delete">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>Delete Department</h4>
+            </div>
+            <div class="modal-body">
+                <h3>Delete Department : {{departmentDelete.name}}</h3>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal">
+                    Close
+                </button>
+                <a href="" class="btncustom btn-custom-delete" data-dismiss="modal" ng-click="deleteDepartment()">
+                    Delete
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

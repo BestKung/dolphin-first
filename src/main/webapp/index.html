@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/handle.css">
+        <link rel="stylesheet" href="css/custom.css">
+        <link rel="stylesheet" href="css/bootstrap-custom-growl.css">
+        <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.min.css">
+        <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.structure.min.css">
+        <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.theme.min.css">
+        <script src="js/jquery-1.11.3.min.js"></script>
+
+    </head>
+    <body ng-app="app">
+        <div class="navbar navbar-custom navbar-static-top">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle sub-menu" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar" style="background:  white"></span>
+                    <span class="icon-bar" style="background:  white"></span>
+                    <span class="icon-bar" style="background:  white"></span>
+                </button>
+                <a class="navbar-brand topic" href="#">Brand</a>
+            </div>
+            <div class="container">
+                <div class="navbar-collapse collapse navbar-inverse-collapse" id="navbar">
+                    <ul class="nav navbar-nav navbar-topic ">
+
+                        <li><a href="#/home" class="topic dropdown">Home</a></li>
+
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle topic " data-toggle="dropdown">Employee<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/employee" class="custom-menu">Add Employees</a></li>
+                                <li><a href="#/employee/information" class="custom-menu">View Employees Information</a></li>
+                                <li><a href="#/department" class="custom-menu">Departments</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle topic" data-toggle="dropdown">Doctor<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" class="custom-menu">Add Doctors</a></li>
+                                <li><a href="#" class="custom-menu">View Doctors Information</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle topic" data-toggle="dropdown">Customer<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" class="custom-menu">Add Customers</a></li>
+                                <li><a href="#" class="custom-menu">View Customer Infromation</a></li>
+                                <li><a href="#" class="custom-menu">Applointment</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle topic" data-toggle="dropdown">Stock<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" class="custom-menu">Add Drug</a></li>
+                                <li><a href="#" class="custom-menu">Add Product</a></li>
+                                <li><a href="#" class="custom-menu">Add Material</a></li>
+                                <li><a href="#" class="custom-menu">View Stock</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle topic" data-toggle="dropdown">Print<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" class="custom-menu">Print Customer Card</a></li>
+                                <li><a href="#" class="custom-menu">Print Applointment</a></li>
+                                <li><a href="#" class="custom-menu">Print Work schedule for Doctor</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <a href="#" class="btncustom btn-custom-sky">Login</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+         
+        <div ng-view></div>
+        
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-route.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/employee.js"></script>
+        <script src="js/employee-information.js"></script>
+        <script src="js/department.js"></script>
+        <script src="js/jquery-custom-growl.js"></script>
+        <script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+    </body>
+</html>
