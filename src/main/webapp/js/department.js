@@ -32,7 +32,7 @@ angular.module('department').controller('departmentController', function ($scope
                     growl('Save Success', 'success');
                     $scope.department = {};
                 }).error(function (data) {
- growl('Error', 'danger');
+            growl('Error', 'danger');
         });
     };
 
@@ -44,16 +44,16 @@ angular.module('department').controller('departmentController', function ($scope
         $http.post('/deletedepartment', $scope.departmentDelete)
                 .success(function (data) {
                     loadDepartment();
-            growl('Delete Success', 'danger');
+                    growl('Delete Success', 'danger');
                 })
                 .error(function (data) {
 
                 });
     };
-   
-   
 
-    
+
+
+
 });
 
 
