@@ -10,7 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartRequest;
+import th.co.geniustree.dental.model.Bank;
 import th.co.geniustree.dental.model.Employee;
+import th.co.geniustree.dental.model.EmployeeImage;
+import th.co.geniustree.dental.repo.BankRepo;
+import th.co.geniustree.dental.repo.ContactRepo;
 import th.co.geniustree.dental.repo.EmployeeRepo;
 
 /**
@@ -19,12 +24,15 @@ import th.co.geniustree.dental.repo.EmployeeRepo;
  */
 @RestController
 public class EmployeeController {
-    
+
     @Autowired
     private EmployeeRepo employeeRepo;
-    
-    @RequestMapping(value = "/saveemployee" , method = RequestMethod.POST)
-    public void saveEmployee(@RequestBody Employee employee){
-    employeeRepo.save(employee);
+
+    @RequestMapping(value = "/saveemployee", method = RequestMethod.POST)
+    public void saveEmployee(@RequestBody Employee employee) {
+        employeeRepo.save(employee);
     }
+
+    
+    
 }

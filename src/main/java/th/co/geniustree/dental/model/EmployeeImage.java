@@ -5,37 +5,27 @@
  */
 package th.co.geniustree.dental.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
-import java.util.List;
 import java.util.Objects;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import org.hibernate.validator.constraints.NotBlank;
+import javax.persistence.Lob;
 
 /**
  *
  * @author Best
  */
 @Entity
-@Table(name = "DEPARTMENT")
-public class Department implements Serializable {
-
+public class EmployeeImage implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(name = "NAME", nullable = false)
-    @NotBlank(message = "Department Name not Empty")
+    @Lob
+    private byte[] content;
     private String name;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "department")
-    private List<Employee> employees;
+    private String mimeType;
 
     public Integer getId() {
         return id;
@@ -43,6 +33,14 @@ public class Department implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public byte[] getContent() {
+        return content;
+    }
+
+    public void setContent(byte[] content) {
+        this.content = content;
     }
 
     public String getName() {
@@ -53,18 +51,18 @@ public class Department implements Serializable {
         this.name = name;
     }
 
-    public List<Employee> getEmployees() {
-        return employees;
+    public String getMimeType() {
+        return mimeType;
     }
 
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
+    public void setMimeType(String mimeType) {
+        this.mimeType = mimeType;
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 71 * hash + Objects.hashCode(this.id);
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -76,11 +74,14 @@ public class Department implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Department other = (Department) obj;
+        final EmployeeImage other = (EmployeeImage) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         return true;
     }
 
-}
+  
+    
+    
+ }
