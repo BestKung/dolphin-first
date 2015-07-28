@@ -20,20 +20,31 @@ angular.module('department').controller('departmentController', function ($scope
     $scope.clear = function () {
         $scope.department = {};
     };
-
+    function validate(){
+        if($scope.department !=  ""){
+            growl('Please input Department Name.','danger');
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
     $scope.actionUpdate = function (id, name) {
         $scope.department = {'id': id, 'name': name};
     };
 
     $scope.saveDepartment = function () {
-        $http.post('/savedepartment', $scope.department)
+       if(validate()){
+            $http.post('/savedepartment', $scope.department)
                 .success(function (data) {
                     loadDepartment();
                     growl('Save Success', 'success');
                     $scope.department = {};
                 }).error(function (data) {
-            growl('Error', 'danger');
+            
         });
+       }
+       
     };
 
     $scope.actionDelete = function (department) {
