@@ -6,6 +6,7 @@
 package th.co.geniustree.dental.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,7 +30,7 @@ public class EmployeeController {
     private EmployeeRepo employeeRepo;
 
     @RequestMapping(value = "/saveemployee", method = RequestMethod.POST)
-    public void saveEmployee(@RequestBody Employee employee) {
+    public void saveEmployee(@Validated @RequestBody Employee employee) {
         employeeRepo.save(employee);
     }
 

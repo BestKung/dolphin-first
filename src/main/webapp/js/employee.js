@@ -3,6 +3,8 @@ angular.module('employee').controller('employeeController', function ($scope, $h
     $scope.authoritys = {};
     $scope.departments = {};
     $scope.employee = {};
+    $scope.passwordMatches = "";
+    $scope.error = {};
     getAuthority();
     function getAuthority() {
         $http.get('/authority')
@@ -24,16 +26,29 @@ angular.module('employee').controller('employeeController', function ($scope, $h
 
                 });
     }
+    $scope.compairPassword = function () {
+        if ($scope.passwordMatches == "" || $scope.employee.password == "") {
+            return false;
+        }
+        if ($scope.passwordMatches == $scope.employee.password) {
+            return true;
+        }
 
-$scope.saveEmployee = function (){
-  $http.post('/saveemployee',$scope.employee)
-          .success(function(data){
-      console.log("success");
-  })
-          .error(function(data){
-      
-  });  
-};
+    };
+
+    $scope.saveEmployee = function () {
+      //  if ($scope.compairPassword()) {
+            $http.post('/saveemployee', $scope.employee)
+                    .success(function (data) {
+                        growl("Save Success", "success");
+                    })
+                    .error(function (data) {
+                        $scope.error = data;
+                      console.log(data);
+                        growl("Error","danger");
+                    });
+      //  }
+    };
 
     $('.datepicker.form-control').datepicker({
         changeYear: true,

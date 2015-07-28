@@ -45,8 +45,6 @@ public class Employee implements Serializable {
     @Column(name = "PASSWORD", nullable = false)
     @NotBlank(message = "Password not Empty")
     private String password;
-    @Column(name = "PID", nullable = false)
-    @NotBlank(message = "Personal ID not Empty")
     private String pid;
     @Column(name = "NAME_TH", nullable = false)
     @NotBlank(message = "Name(TH) not Empty")
@@ -58,16 +56,10 @@ public class Employee implements Serializable {
     private Date birthDate;
     @Column(name = "SEX")
     private String sex;
-    @Column(name = "BLOOD", nullable = false)
-    @NotBlank(message = "Blood not Empty")
     private String blood;
     @Column(name = "MARRY_STATUS")
     private String marryStatus;
-    @Column(name = "NATION", nullable = false)
-    @NotBlank(message = "Nation not Empty")
     private String nation;
-    @Column(name = "RACE", nullable = false)
-    @NotBlank(message = "Race not Empty")
     private String race;
     @Column(name = "SOLDER_STATUS")
     private String soldierStatus;
