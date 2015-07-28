@@ -1,4 +1,4 @@
-var app = angular.module('app',['ngRoute','employee','employeeInformationtt','department']);
+var app = angular.module('app',['ngRoute','employee','employeeInformationtt','department','checklist-model']);
 app = angular.module('app');
 
 app.controller('homeController',function($scope , $http){

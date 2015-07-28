@@ -5,6 +5,7 @@
  */
 package th.co.geniustree.dental.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -18,8 +19,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -88,25 +92,28 @@ public class Employee implements Serializable {
     @NotBlank(message = "Work Satus not Empty")
     private String workStatus;
     @Column(name = "PICTURE")
-    private String picture;
     private boolean enable;
 
     @ManyToOne
     @JoinColumn(name = "DEPARTMENT_ID")
     private Department department;
 
-    @OneToOne
-    @JoinColumn(name = "CONTACT_ID")
+    @OneToOne(cascade = javax.persistence.CascadeType.ALL)
+    @JoinColumn(name = "CONTACT_ID" , nullable = true)
     private Contact contact;
 
-    @OneToOne
-    @JoinColumn(name = "BANK_ID")
+    @OneToOne(cascade = javax.persistence.CascadeType.ALL)
+    @JoinColumn(name = "BANK_ID" , nullable = true)
     private Bank bank;
-
+    
     @ManyToMany
     @Column(name = "ROLE")
     private List<Authority> roles;
-
+    
+    @OneToOne(cascade = javax.persistence.CascadeType.ALL)
+    @JoinColumn(name = "IMAGE_ID" , nullable = true)
+    private EmployeeImage employeeImage;
+    
     public Integer getId() {
         return id;
     }
@@ -267,14 +274,6 @@ public class Employee implements Serializable {
         this.workStatus = workStatus;
     }
 
-    public String getPicture() {
-        return picture;
-    }
-
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
-
     public boolean isEnable() {
         return enable;
     }
@@ -314,6 +313,16 @@ public class Employee implements Serializable {
     public void setRoles(List<Authority> roles) {
         this.roles = roles;
     }
+
+    public EmployeeImage getEmployeeImage() {
+        return employeeImage;
+    }
+
+    public void setEmployeeImage(EmployeeImage employeeImage) {
+        this.employeeImage = employeeImage;
+    }
+    
+    
 
     @Override
     public int hashCode() {
