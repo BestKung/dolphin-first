@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="row">
+        <div class="panel panel-info" id="panel-top">
+            <div class="panel-heading">
+                <div class="h1">
+                    TabaleCustomer
+                </div> 
+            </div>
+            <div class="panel-body">
+
+                <div class="form-horizontal">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            InformationCustomer
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <td>EMAIL</td>
+                                            <td>NAME</td>
+                                            <td>TEL</td> 
+                                            <td>MOBILE</td>    
+                                            <td></td> 
+                                        </tr>   
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="columncustomer in customers.content">
+                                            <td>{{columncustomer.email}}</td>
+                                            <td>{{columncustomer.name}}</td>
+                                            <td>{{columncustomer.tel}}</td>
+                                            <td>{{columncustomer.mobile}}</td>
+                                            <td>
+                                                <form method="post">
+                                                    <input type="submit" value="Delete" class="btn btn-danger" ng-click="deleteCustomer(columncustomer)"> 
+                                                    <!-- <input type="submit" class="btn btn-primary" value="Update" ng-click="">-->
+                                                </form>
+                                            </td>
+                                        </tr>  
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="model-delete">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>Delete Department</h4>
+            </div>
+            <div class="modal-body">
+                <h3>Delete Department : {{departmentDelete.name}}</h3>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal">
+                    Close
+                </button>
+                <a href="" class="btncustom btn-custom-delete" data-dismiss="modal" ng-click="deleteDepartment()">
+                    Delete
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,122 @@
+
+<div class="container">
+    <div class="panel panel-info" id="panel-top">
+        <div class="panel-heading">
+            <div class="h1">
+                Customer Information
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">ID : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" disabled>
+                    </div>
+                    <label class="col-md-2 control-label"><span class="necessary">*</span> E-mail : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="customer.email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label"><span class="necessary">*</span> Password : </label>
+                    <div class="col-md-3">
+                        <input type="password" class="form-control" ng-model="customer.password">
+                    </div>
+
+                    <label class="col-md-2 control-label"><span class="necessary">*</span> Confirm Password : </label>
+                    <div class="col-md-3">
+                        <input type="password" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label"><span class="necessary">*</span> Personal ID : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="customer.pid">
+                    </div>
+
+                    <label class="col-md-2 control-label"><span class="necessary">*</span> Name TH : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="customer.name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Name HN : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="customer.hn">
+                    </div>
+
+                    <label class="col-md-2 control-label">Birth Date : </label>
+                    <div class="col-md-3">
+                        <input class="form-control datepicker" ng-model="customer.birthday">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Sex : </label>
+                    <div class="col-md-3">
+                        <select class="form-control" ng-model="customer.sex">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+
+                    <label class="col-md-2 control-label" ><span class="necessary">*</span> Blood : </label>
+                    <div class="col-md-3">
+                        <select class="form-control" ng-model="customer.blood">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="O">O</option>
+                            <option value="AB">AB</option>
+                        </select>
+                    </div>                  
+
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label"><span class="necessary">*</span> Race : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="customer.race">
+                    </div>
+
+                    <label class="col-md-2 control-label"><span class="necessary">*</span> Current Address : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="customer.address">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Tel : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="customer.tel">
+                    </div>
+
+                    <label class="col-md-2 control-label"><span class="necessary">*</span> Mobile : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="customer.mobile">
+                    </div>                   
+                </div>
+                
+                <div style="margin : 50px 450px;">
+                <label >ประวัติทางการแพทย์</label>
+                <br>
+                <div ng-repeat="med in medicalhistorys.content">
+                    <input type="checkbox" checklist-model="customer.medicalHistory"
+                           checklist-value="med"> {{med.disease}}
+                </div>
+                </div>
+                
+                
+                <div style="margin : -20px 450px;"> 
+                        <input type="file">
+                </div>
+            </div>
+            <div class="col-md-offset-11">
+                <input type="submit" class="btn btn-success" value="Save" ng-click="saveCustomer()">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

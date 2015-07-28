@@ -1,4 +1,4 @@
-var app = angular.module('app',['ngRoute','employee','employeeInformationtt','department']);
+var app = angular.module('app',['ngRoute','employee','employeeInformationtt','department','Customer']);
 app = angular.module('app');
 
 app.controller('homeController',function($scope , $http){
@@ -22,6 +22,14 @@ app.config(function ($routeProvider){
     }).when('/department',{
         controller:'departmentController',
         templateUrl:'pages/department.html'
+    
+    }).when('/customer',{
+        controller:'CustomerController',
+        templateUrl:'pages/customer.html'
+    
+    }).when('/tablecustomer',{
+        controller:'CustomerController',
+        templateUrl:'pages/tablecustomer.html'
     
     }).otherwise({
         redirectTo:'/'
