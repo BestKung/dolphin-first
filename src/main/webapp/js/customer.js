@@ -4,6 +4,7 @@ angular.module('Customer', ['checklist-model'])
             $scope.customer = {};
             $scope.customers = {};
             $scope.medicalhistorys = {};
+            $scope.error = {};
 
             loadCustomer();
             function loadCustomer() {
@@ -15,17 +16,18 @@ angular.module('Customer', ['checklist-model'])
             }
             $scope.saveCustomer = function () {
                 $http.post('/customer', $scope.customer).success(function (data) {
-                    alert('saveข้อมูลเรียบร้อย');
+                     growl("Save Success", "success");
                 }).error(function (data) {
                     $scope.error = data;
-                    alert('คุณกรอกข้อมูลไม่เรียบร้อย');
+                    growl("Error", "danger");
                 });
             };
             
             $scope.deleteCustomer = function (rowcustomer){
                 $http.post('/customerdelete',rowcustomer).success(function (data){
                     loadCustomer();
-                   alert('ลบข้อมูลเรียบร้อย'); 
+                    console.log("hjhkjhkh");
+                   growl('Delete Success', 'danger');
                 }).error(function (data, status, header, config){
                    alert('ลบไม่สำเร็จ'); 
                 });

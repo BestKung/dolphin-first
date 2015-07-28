@@ -19,6 +19,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  *
@@ -36,10 +38,12 @@ public class Customer implements Serializable {
     @Column(name = "HN")
     private String hn;
 
-    @Column(name = "PID")
+    @Column(name = "PID", nullable = false)
+    @NotBlank(message = "PID not Empty")
     private String pid;
 
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable = false)
+    @NotBlank(message = "Name(TH) not Empty")
     private String name;
    
     @Temporal(TemporalType.DATE)
@@ -64,13 +68,16 @@ public class Customer implements Serializable {
     @Column(name = "TEL")
     private String tel;
 
-    @Column(name = "MOBILE")
+    @Column(name = "MOBILE", nullable = false)
+    @NotBlank(message = "Mobile not Empty")
     private String mobile;
 
     @Column(name = "JOB")
     private String job;
 
-    @Column(name = "EMAIL")
+    @NotBlank(message = "E-mail not Empty")
+    @Email(message = "E-mail Incompatible example@example.xom")
+    @Column(name = "EMAIL", nullable = false, unique = true)
     private String email;
 
     @ManyToMany

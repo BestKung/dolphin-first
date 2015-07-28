@@ -4,7 +4,7 @@ angular.module('employee').controller('employeeController', function ($scope, $h
     $scope.departments = {};
     $scope.employee = {};
     $scope.passwordMatches = "";
-    $scope.error = {};
+
     getAuthority();
     function getAuthority() {
         $http.get('/authority')
@@ -37,17 +37,17 @@ angular.module('employee').controller('employeeController', function ($scope, $h
     };
 
     $scope.saveEmployee = function () {
-      //  if ($scope.compairPassword()) {
-            $http.post('/saveemployee', $scope.employee)
-                    .success(function (data) {
-                        growl("Save Success", "success");
-                    })
-                    .error(function (data) {
-                        $scope.error = data;
-                      console.log(data);
-                        growl("Error","danger");
-                    });
-      //  }
+        //  if ($scope.compairPassword()) {
+        $http.post('/saveemployee', $scope.employee)
+                .success(function (data) {
+                    growl("Save Success", "success");
+                })
+                .error(function (data) {
+                    $scope.error = data;
+                    console.log(data);
+                    growl("Error", "danger");
+                });
+        //  }
     };
 
     $('.datepicker.form-control').datepicker({
