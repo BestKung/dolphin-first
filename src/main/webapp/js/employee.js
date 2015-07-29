@@ -40,23 +40,24 @@ angular.module('employee').controller('employeeController', function ($scope, $h
         if ($scope.compairPassword()) {
             $http.post('/saveemployee', $scope.employee)
                     .success(function (data) {
-                        growl("Save Success", "success");
+                        growl("Save Success", "success", 'buttom');
                     })
                     .error(function (data) {
                         $scope.error = data;
                         $('body').animate({scrollTop: 0}, "600");
                         validateForm($scope.error);
-                     });
+                    });
 
         }
         else {
-            growl("Plase Input Password", "danger",'top');
+            growl("Plase Input Password", "danger", 'buttom');
         }
 
     };
 
     $scope.clearError = function (elementValidator) {
         $(elementValidator).removeClass('has-error');
+        $scope.error = {};
     };
 
     function validateForm(data) {
