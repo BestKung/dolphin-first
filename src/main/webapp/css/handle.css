@@ -57,4 +57,9 @@ a.topic.dropdown{
     background: #03a9f4;
     color: white;
 }
-
+.has-error .form-control{
+    border-color: Red;
+}
+.r{
+    background: red;
+}

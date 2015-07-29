@@ -10,62 +10,62 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label">ID : </label>
                     <div class="col-md-3">
-                        <input class="form-control" disabled>
+                        <input class="form-control" disabled placeholder="ID">
                     </div>
 
                     <label class="col-md-2 control-label"><span class="necessary">*</span> E-mail : </label>
-                    <div class="col-md-3">
-                        <input class="form-control" ng-model="employee.email">
+                    <div class="col-md-3 email" >
+                        <input class="form-control" id="email" ng-model="employee.email" placeholder="Email" ng-change="clearError('.email')">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label"><span class="necessary">*</span> Password : </label>
                     <div class="col-md-3">
-                        <input type="password" class="form-control" ng-model="passwordMatches">
+                        <input type="password" class="form-control" id="password" ng-model="passwordMatches" placeholder="Password">
                     </div>
 
                     <label class="col-md-2 control-label"><span class="necessary">*</span> Confirm Password : </label>
                     <div class="col-md-3">
-                        <input type="password" class="form-control" ng-model="employee.password">
+                        <input type="password" class="form-control" id="password" ng-model="employee.password" placeholder="Confirm Password">
                     </div>
                     <div class="col-md-pull-0" ng-show="compairPassword()">
                         <a href="" class="glyphicon glyphicon-ok"></a>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2 control-label"><span class="necessary">*</span> Personal ID : </label>
+                    <label class="col-md-2 control-label">Personal ID : </label>
                     <div class="col-md-3">
-                        <input class="form-control" ng-model="employee.pid">
+                        <input class="form-control" ng-model="employee.pid" placeholder="Personal ID">
                     </div>
 
                     <label class="col-md-2 control-label"><span class="necessary">*</span> Name TH : </label>
-                    <div class="col-md-3">
-                        <input class="form-control" ng-model="employee.nameTh">
+                    <div class="col-md-3 nameth" >
+                        <input class="form-control" id="nameth" ng-model="employee.nameTh"  ng-change="clearError('.nameth')" placeholder="Name TH">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label">Name ENG : </label>
                     <div class="col-md-3">
-                        <input class="form-control" ng-model="employee.nameEng">
+                        <input class="form-control" ng-model="employee.nameEng" placeholder="Name Eng">
                     </div>
 
                     <label class="col-md-2 control-label">Birth Date : </label>
                     <div class="col-md-3">
-                        <input class="form-control datepicker" ng-model="employee.birthDate">
+                        <input class="form-control datepicker" ng-model="employee.birthDate" placeholder="Birth Date">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label">Sex : </label>
                     <div class="col-md-3">
-                        <select class="form-control" ng-model="employee.sex" value="Male">
+                        <select class="form-control" ng-model="employee.sex" ng-init="employee.sex = 'Male'">
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                         </select>
                     </div>
 
-                    <label class="col-md-2 control-label" ><span class="necessary">*</span> Blood : </label>
+                    <label class="col-md-2 control-label" > Blood : </label>
                     <div class="col-md-3">
-                        <select class="form-control" ng-model="employee.blood" value="A">
+                        <select class="form-control" ng-model="employee.blood" ng-init="employee.blood = 'A'">
                             <option value="A">A</option>
                             <option value="B">B</option>
                             <option value="O">O</option>
@@ -75,7 +75,7 @@
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label">Marry Status : </label>
-                    <div class="col-md-3">
+                    <div class="col-md-3" ng-init="employee.marryStatus = 'Single'">
                         <select class="form-control" ng-model="employee.marryStatus" value="Single">
                             <option value="Single">Single</option>
                             <option value="Married">Married</option>
@@ -85,42 +85,42 @@
                         </select>
                     </div>
 
-                    <label class="col-md-2 control-label"><span class="necessary">*</span> Nation : </label>
+                    <label class="col-md-2 control-label"> Nation : </label>
                     <div class="col-md-3">
-                        <input class="form-control" ng-model="employee.nation">
+                        <input class="form-control" ng-model="employee.nation" placeholder="Nation">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2 control-label"><span class="necessary">*</span> Race : </label>
+                    <label class="col-md-2 control-label"> Race : </label>
                     <div class="col-md-3">
-                        <input class="form-control" ng-model="employee.race">
+                        <input class="form-control" ng-model="employee.race" placeholder="Race">
                     </div>
 
                     <label class="col-md-2 control-label">Soldier Status : </label>
                     <div class="col-md-3">
-                        <input class="form-control" ng-model="employee.soldierStatus">
+                        <input class="form-control" ng-model="employee.soldierStatus" placeholder="Soldier Status">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2 control-label">Address Of Personal : </label>
+                    <label class="col-md-2 control-label">Address Of Personal ID: </label>
                     <div class="col-md-3">
-                        <textarea class="form-control" ng-model="employee.addressOfPid"></textarea>
+                        <textarea class="form-control" ng-model="employee.addressOfPid" placeholder="Address Of Personal ID"></textarea>
                     </div>
 
                     <label class="col-md-2 control-label"><span class="necessary">*</span> Current Address : </label>
-                    <div class="col-md-3">
-                        <textarea class="form-control" ng-model="employee.currentAddress"></textarea>
+                    <div class="col-md-3 currentaddress" >
+                        <textarea class="form-control" id="currentaddress" ng-model="employee.currentAddress" placeholder="Current Address" ng-change="clearError('.currentaddress')"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label">Tel : </label>
                     <div class="col-md-3">
-                        <input class="form-control" ng-model="employee.tel">
+                        <input class="form-control" ng-model="employee.tel" placeholder="Tel">
                     </div>
 
-                    <label class="col-md-2 control-label"><span class="necessary">*</span> Mobile : </label>
-                    <div class="col-md-3">
-                        <input class="form-control" ng-model="employee.mobile">
+                    <label class="col-md-2 control-label"><span class="necessary" >*</span> Mobile : </label>
+                    <div class="col-md-3 mobile">
+                        <input class="form-control" id="mobile" placeholder="Mobile" ng-model="employee.mobile" ng-change="clearError('.mobile')">
                     </div>
                 </div>
                 <div class="form-group">
@@ -130,20 +130,20 @@
                         </select>
                     </div>    
 
-                    <label class="col-md-2 control-label"><span class="necessary">*</span> Start Work : </label>
-                    <div class="col-md-3">
-                        <input class="form-control datepicker" ng-model="employee.startWork">
+                    <label class="col-md-2 control-label"> Start Work : </label>
+                    <div class="col-md-3" id="startwork">
+                        <input class="form-control datepicker" placeholder="Start Work" ng-model="employee.startWork">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label">End Work : </label>
                     <div class="col-md-3">
-                        <input class="form-control datepicker" ng-model="employee.endWork">
+                        <input class="form-control datepicker" placeholder="End Work " ng-model="employee.endWork">
                     </div>
 
-                    <label class="col-md-2 control-label"><span class="necessary">*</span> Work Status : </label>
-                    <div class="col-md-3">
-                        <select class="form-control" ng-model="employee.workStatus" value="Normal">
+                    <label class="col-md-2 control-label"> Work Status : </label>
+                    <div class="col-md-3" ng-init="employee.workStatus = 'Normal'">
+                        <select class="form-control" ng-model="employee.workStatus">
                             <option value="Normal">Nomal</option>
                             <option value="Suspension">Suspension</option>
                             <option value="Resigned">Resigned</option>
@@ -175,18 +175,18 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label">Bank Name : </label>
                             <div class="col-md-3">
-                                <input class="form-control" ng-model="employee.bank.bankName">
+                                <input class="form-control" ng-model="employee.bank.bankName" placeholder="Bank Name">
                             </div>    
 
                             <label class="col-md-2 control-label">Account Name : </label>
                             <div class="col-md-3">
-                                <input class="form-control" ng-model="employee.bank.accountName">
+                                <input class="form-control" ng-model="employee.bank.accountName" placeholder="Account Name">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label">Account Number : </label>
                             <div class="col-md-3">
-                                <input class="form-control" ng-model="employee.bank.accountNumber">
+                                <input class="form-control" ng-model="employee.bank.accountNumber" placeholder="Account Number">
                             </div>
                         </div>
                     </div>
@@ -203,19 +203,19 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label">Name : </label>
                             <div class="col-md-3">
-                                <input class="form-control" ng-model="employee.contact.name">
+                                <input class="form-control" ng-model="employee.contact.name" placeholder="Contact Name">
                             </div>    
 
                             <label class="col-md-2 control-label">Relation : </label>
                             <div class="col-md-3">
-                                <input class="form-control" ng-model="employee.contact.relation">
+                                <input class="form-control" ng-model="employee.contact.relation" placeholder="Relation">
                             </div>
                              <div id="growl-custom"></div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label">Tel : </label>
                             <div class="col-md-3">
-                                <input class="form-control" ng-model="employee.contact.tel">
+                                <input class="form-control" ng-model="employee.contact.tel" placeholder="Tel">
                             </div>
                          </div>
                     </div>

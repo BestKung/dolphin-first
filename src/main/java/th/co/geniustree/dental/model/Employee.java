@@ -5,7 +5,6 @@
  */
 package th.co.geniustree.dental.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -19,11 +18,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
+import javax.persistence.TemporalType;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -38,51 +35,65 @@ public class Employee implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    
     @Column(name = "EMAIL", nullable = false, unique = true)
     @NotBlank(message = "E-mail not Empty")
-    @Email(message = "E-mail Incompatible example@example.xom")
+    @Email(message = "example@example.com")
     private String email;
+    
     @Column(name = "PASSWORD", nullable = false)
     @NotBlank(message = "Password not Empty")
     private String password;
     private String pid;
+   
     @Column(name = "NAME_TH", nullable = false)
     @NotBlank(message = "Name(TH) not Empty")
     private String nameTh;
+   
     @Column(name = "NAME_ENG")
     private String nameEng;
-    @Temporal(javax.persistence.TemporalType.DATE)
+   
+    @Temporal(TemporalType.DATE)
     @Column(name = "BIRTH_DATE")
     private Date birthDate;
+   
     @Column(name = "SEX")
     private String sex;
     private String blood;
+   
     @Column(name = "MARRY_STATUS")
     private String marryStatus;
     private String nation;
     private String race;
+   
     @Column(name = "SOLDER_STATUS")
     private String soldierStatus;
+   
     @Column(name = "ADDRESS_OF_PID")
     private String addressOfPid;
+   
     @Column(name = "CURRENT_ADDRESS", nullable = false)
     @NotBlank(message = "Current Address not Empty")
     private String currentAddress;
+   
     @Column(name = "TEL")
     private String tel;
+   
     @Column(name = "MOBILE", nullable = false)
     @NotBlank(message = "Mobile not Empty")
     private String mobile;
-    @Column(name = "START_WORK", nullable = false)
-    @NotBlank(message = "Start Work not Empty")
-    @Temporal(javax.persistence.TemporalType.DATE)
+   
+    @Column(name = "START_WORK")
+    @Temporal(TemporalType.DATE)
     private Date startWork;
+    
     @Column(name = "END_WORK")
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Temporal(TemporalType.DATE)
     private Date endWork;
-    @Column(name = "WORK_STATUS", nullable = false)
-    @NotBlank(message = "Work Satus not Empty")
+   
+    @Column(name = "WORK_STATUS")
     private String workStatus;
+   
     @Column(name = "PICTURE")
     private boolean enable;
 
@@ -105,7 +116,7 @@ public class Employee implements Serializable {
     @OneToOne(cascade = javax.persistence.CascadeType.ALL)
     @JoinColumn(name = "IMAGE_ID" , nullable = true)
     private EmployeeImage employeeImage;
-    
+
     public Integer getId() {
         return id;
     }
@@ -314,8 +325,8 @@ public class Employee implements Serializable {
         this.employeeImage = employeeImage;
     }
     
+   
     
-
     @Override
     public int hashCode() {
         int hash = 3;
