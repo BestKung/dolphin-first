@@ -15,7 +15,5 @@ import th.co.geniustree.dental.model.Employee;
  * @author Best
  */
 public interface EmployeeRepo extends JpaRepository<Employee, Integer>{
-    
-    
-    public Page<>
+
 }
