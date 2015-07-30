@@ -21,7 +21,7 @@ angular.module('department').controller('departmentController', function ($scope
         $scope.department = {};
     };
     function validate(){
-        if($scope.department !=  ""){
+        if($scope.department ==  ""){
             growl('Please input Department Name.','danger');
             return false;
         }
@@ -41,7 +41,7 @@ angular.module('department').controller('departmentController', function ($scope
                     growl('Save Success', 'success');
                     $scope.department = {};
                 }).error(function (data) {
-            
+                validate();
         });
        }
        
