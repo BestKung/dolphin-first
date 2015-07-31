@@ -31,9 +31,13 @@ angular.module('employee').controller('employeeController', function ($scope, $h
             return false;
         }
         if ($scope.passwordMatches == $scope.employee.password) {
+            $('#checp-password').removeClass('glyphicon glyphicon-remove').addClass('glyphicon glyphicon-ok').css('color', '#64dd17');
             return true;
         }
-
+        if ($scope.passwordMatches != $scope.employee.password) {
+            $('#checp-password').removeClass('glyphicon glyphicon-ok').addClass('glyphicon glyphicon-remove').css('color', 'RED');
+            return true;
+        }
     };
 
     $scope.saveEmployee = function () {
@@ -44,15 +48,13 @@ angular.module('employee').controller('employeeController', function ($scope, $h
                     })
                     .error(function (data) {
                         $scope.error = data;
-                        $('body').animate({scrollTop: 0}, "600");
+                        $('body,html').animate({scrollTop: 0}, "600");
                         validateForm($scope.error);
                     });
-
         }
         else {
             growl("Plase Input Password", "danger", 'buttom');
         }
-
     };
 
     $scope.clearError = function (elementValidator) {
@@ -83,7 +85,6 @@ angular.module('employee').controller('employeeController', function ($scope, $h
         }
     }
     ;
-
     $('.datepicker.form-control').datepicker({
         changeYear: true,
         yearRange: "-100:+100",

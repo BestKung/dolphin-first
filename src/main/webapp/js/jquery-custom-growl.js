@@ -4,22 +4,35 @@ function growl(message, type, position) {
     $growlCustom.removeAttr('class');
     $growlCustom.html(message);
     var positionHeight = 0;
-    var positionWidth = 0;
-    switch (position) {
+    var positionWidth = ($(window).outerWidth() / 2) - ($growlCustom.outerWidth() / 2);
 
-        case 'buttom':
-            positionWidth = ($(window).outerWidth() / 2) - ($growlCustom.outerWidth() / 2);
-            positionHeight = ($(window).outerHeight() + $('body').scrollTop()) - 100;
-            break;
+    switch (position) {
         case 'top':
-            positionWidth = ($(window).outerWidth() / 2) - ($growlCustom.outerWidth() / 2);
-            positionHeight = (($('body').height() + 30) - (($(window).innerHeight())));
+            positionHeight = (browser().scrollTop()) + 50;
+            break;
+        case 'buttom':
+            positionHeight = ($(window).outerHeight() + browser().scrollTop()) - 80;
             break;
         default :
-            positionWidth = ($(window).outerWidth() / 2) - ($growlCustom.outerWidth() / 2);
-            positionHeight = ($(window).outerHeight() - $('body').scrollTop());
+            positionHeight = ($(window).outerHeight() - browser().scrollTop());
     }
+
     $growlCustom.css('top', positionHeight);
     $growlCustom.css('left', positionWidth);
     $growlCustom.addClass(alretType).fadeIn(1000).fadeOut(2000);
 }
+
+function browser() {
+    var chrome = navigator.userAgent.search("Chrome");
+    var frifox = navigator.userAgent.search("Firefox");
+    var brwsr;
+    if (chrome > -1) {
+        brwsr = $('body');
+    }
+    else if (frifox > -1) {
+        brwsr = $('html');
+    }
+    return brwsr;
+}
+
+

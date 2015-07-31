@@ -20,31 +20,32 @@ angular.module('department').controller('departmentController', function ($scope
     $scope.clear = function () {
         $scope.department = {};
     };
-    function validate(){
-        if($scope.department ==  ""){
-            growl('Please input Department Name.','danger');
+    function validate() {
+        if ($scope.department.name == undefined || $scope.department.name == "") {
+            growl('Please input Department.', 'danger', 'buttom');
             return false;
         }
-        else{
+        else {
             return true;
         }
     }
     $scope.actionUpdate = function (id, name) {
         $scope.department = {'id': id, 'name': name};
+        $('body,html').animate({scrollTop: 0}, "600");
     };
 
     $scope.saveDepartment = function () {
-       if(validate()){
+        if (validate()) {
             $http.post('/savedepartment', $scope.department)
-                .success(function (data) {
-                    loadDepartment();
-                    growl('Save Success', 'success');
-                    $scope.department = {};
-                }).error(function (data) {
-                validate();
-        });
-       }
-       
+                    .success(function (data) {
+                        loadDepartment();
+                        growl('Save Success', 'success', 'buttom');
+                        $scope.department = {};
+                    }).error(function (data) {
+                
+            });
+        }
+
     };
 
     $scope.actionDelete = function (department) {
@@ -55,7 +56,7 @@ angular.module('department').controller('departmentController', function ($scope
         $http.post('/deletedepartment', $scope.departmentDelete)
                 .success(function (data) {
                     loadDepartment();
-                    growl('Delete Success', 'danger');
+                    growl('Delete Success', 'danger', 'buttom');
                 })
                 .error(function (data) {
 

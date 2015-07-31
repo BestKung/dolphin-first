@@ -28,8 +28,8 @@
                     <div class="col-md-3">
                         <input type="password" class="form-control" id="password" ng-model="employee.password" placeholder="Confirm Password">
                     </div>
-                    <div class="col-md-pull-0" ng-show="compairPassword()">
-                        <a href="" class="glyphicon glyphicon-ok"></a>
+                    <div class="col-md-1" ng-show="compairPassword()">
+                        <i id="checp-password"></i>
                     </div>
                 </div>
                 <div class="form-group">
@@ -163,7 +163,6 @@
                         </div>
                     </div>
                 </div> 
-            </div>
             <div class="panel">
                 <div class="panel-heading">
                     <div class="h1">
@@ -171,8 +170,7 @@
                     </div>
                 </div>  
                 <div class="panel-body">
-                    <div class="form-horizontal">
-                        <div class="form-group">
+                    <div class="form-group">
                             <label class="col-md-2 control-label">Bank Name : </label>
                             <div class="col-md-3">
                                 <input class="form-control" ng-model="employee.bank.bankName" placeholder="Bank Name">
@@ -191,7 +189,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
             <div class="panel">
                 <div class="panel-heading">
                     <div class="h1">
@@ -199,8 +196,7 @@
                     </div>
                 </div>  
                 <div class="panel-body">
-                    <div class="form-horizontal">
-                        <div class="form-group">
+                    <div class="form-group">
                             <label class="col-md-2 control-label">Name : </label>
                             <div class="col-md-3">
                                 <input class="form-control" ng-model="employee.contact.name" placeholder="Contact Name">
@@ -220,9 +216,9 @@
                          </div>
                     </div>
                 </div>
-            </div>
             <div class="col-md-offset-11">
-                <input type="submit" class="btn btn-success" value="Save" ng-click="saveEmployee()">
+                <button type="submit" class="btn btn-success" ng-click="saveEmployee()">Save</button>
+            </div>
             </div>
         </div>
     </div>
