@@ -9,7 +9,7 @@ angular.module('department').controller('departmentController', function ($scope
     loadDepartment();
 
     function loadDepartment() {
-        $http.get('/depaerments')
+        $http.get('/depaerments',{params:{page:0,size:50,}})
                 .success(function (data) {
                     $scope.departments = data;
                 }).error(function (data) {

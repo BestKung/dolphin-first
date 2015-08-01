@@ -16,6 +16,8 @@ INSERT INTO DEPARTMENT(name) values('a');
 INSERT INTO DEPARTMENT(name) values('b');
 INSERT INTO DEPARTMENT(name) values('c');
 
+-- INSERT INTO EMPLOYEE(nameth,email,mobile,workstatus) values('a','a@a','a','a');
+
 INSERT INTO CUSTOMER(HN,PID,NAME,BIRTHDAY,SEX,BLOOD,NATION,RACE,ADDRESS,TEL,MOBILE,JOB,EMAIL)
 values('100','1730200213549','jasin','1993-07-28','M','B','thai','thai','155/8','034589948','0964747468','ProProgrammer','meta.vin@hotmail.com');
 

@@ -1,5 +1,5 @@
 
-var app = angular.module('app',['ngRoute','employee','employeeInformationtt','department','Customer']);
+var app = angular.module('app',['ngRoute','employee','employeeInformation','department','Customer']);
 app = angular.module('app');
 
 app.controller('homeController',function($scope , $http){

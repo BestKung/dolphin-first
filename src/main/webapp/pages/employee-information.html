@@ -1,5 +1,6 @@
 <div class="container">
     <div class="panel panel-info" id="panel-top">
+
         <div class="panel-heading">
             <div class="h1">
                 Employee Information
@@ -11,25 +12,63 @@
                     Information
                 </div>
                 <div class="panel-body">
-                    <div class="table-responsive">
-                <table class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Tel</th>
-                            <th>Department</th>
-                            <th>Work Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                    </tbody>
-                </table>
-            </div>
+                    <div class="form-inline col-md-7">
+                        <label>Pages : </label>
+                        <select class="form-control">
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                        </select>
+                    </div>
+                    <div class="form-inline">
+                        <label>Search : </label>
+                        <input class="form-control" style="margin-right: 10px">
+
+                        <label>SearchBy : </label>
+                        <select class="form-control">
+                            <option value="name">Name</option>
+                            <option value="email">Email</option>
+                            <option value="mobile">Mobile</option>
+                        </select>
+                    </div>
+                    <div class="table-responsive" style="margin-top: 20px;">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Mobile</th>
+                                    <th>Department</th>
+                                    <th>Work Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="employee in employees.content">
+                                    <td>{{employee.id}}</td>
+                                    <td>{{employee.nameTh}}</td>
+                                    <td>{{employee.email}}</td>
+                                    <td>{{employee.mobile}}</td>
+                                    <td>{{employee.department.name}}</td>
+                                    <td>{{employee.workStatus}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <ul class="pagination pull-right">
+                        <li><a href="" class="pag">&Lt;</a></li>
+                        <li><a href="">&LT;</a></li>
+                        <li class="disabled"><a href="">0</a></li>
+                        <li><a href="">&GT;</a></li>
+                        <li><a href="">&Gt;</a></li>
+                    </ul>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+

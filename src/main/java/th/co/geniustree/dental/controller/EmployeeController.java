@@ -5,8 +5,9 @@
  */
 package th.co.geniustree.dental.controller;
 
-import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +31,14 @@ public class EmployeeController {
        employeeRepo.save(employee);
     }
 
+    @RequestMapping(value = "/employees" , method = RequestMethod.GET)
+    public Page<Employee> getEmployee(Pageable pageable){
+    return employeeRepo.findAll(pageable);
+    }
     
+    @RequestMapping(value = "totalemployee" , method = RequestMethod.GET)
+    public Long totalEmployee(){
+    return employeeRepo.count();
+    }
     
 }

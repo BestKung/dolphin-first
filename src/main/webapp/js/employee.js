@@ -41,7 +41,7 @@ angular.module('employee').controller('employeeController', function ($scope, $h
     };
 
     $scope.saveEmployee = function () {
-        if ($scope.compairPassword()) {
+        
             $http.post('/saveemployee', $scope.employee)
                     .success(function (data) {
                         growl("Save Success", "success", 'buttom');
@@ -51,12 +51,8 @@ angular.module('employee').controller('employeeController', function ($scope, $h
                         $('body,html').animate({scrollTop: 0}, "600");
                         validateForm($scope.error);
                     });
-        }
-        else {
-            growl("Plase Input Password", "danger", 'buttom');
-        }
-    };
-
+        };
+    
     $scope.clearError = function (elementValidator) {
         $(elementValidator).removeClass('has-error');
         $scope.error = {};
@@ -67,24 +63,29 @@ angular.module('employee').controller('employeeController', function ($scope, $h
         var currentaddress = data.violations.currentAddress;
         var nameth = data.violations.nameTh;
         var mobile = data.violations.mobile;
+        var password = data.violations.password;
         if (email) {
             $('.email').addClass('has-error');
             $('#email').val("").attr('placeholder', data.violations.email.message);
         }
+        if (password) {
+            $('.password').addClass('has-error');
+            $('#password').attr('placeholder', data.violations.password.message);
+        }
         if (nameth) {
             $('.nameth').addClass('has-error');
-            $('#nameth').val("").attr('placeholder', data.violations.nameTh.message);
+            $('#nameth').attr('placeholder', data.violations.nameTh.message);
         }
         if (mobile) {
             $('.mobile').addClass('has-error');
-            $('#mobile').val("").attr('placeholder', data.violations.mobile.message);
+            $('#mobile').attr('placeholder', data.violations.mobile.message);
         }
         if (currentaddress) {
             $('.currentaddress').addClass('has-error');
-            $('#currentaddress').val("").attr('placeholder', data.violations.currentAddress.message);
+            $('#currentaddress').attr('placeholder', data.violations.currentAddress.message);
         }
-    }
-    ;
+    };
+    
     $('.datepicker.form-control').datepicker({
         changeYear: true,
         yearRange: "-100:+100",
