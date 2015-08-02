@@ -14,6 +14,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +31,7 @@ import th.co.geniustree.dental.repo.ContactRepo;
 import th.co.geniustree.dental.repo.DepartmentRepo;
 import th.co.geniustree.dental.repo.EmployeeRepo;
 import th.co.geniustree.dental.repo.AuthorityRepo;
+import th.co.geniustree.dental.service.EmployeeSearchService;
 
 /**
  *
@@ -48,7 +52,10 @@ public class EmployeeIT {
     private ContactRepo contactRepo;
     @Autowired
     private AuthorityRepo roleRepo;
+    @Autowired
+    private EmployeeSearchService employeeSearchService;
 
+    private Pageable pageable;
     private Employee employee;
     private Contact contact;
     private Bank bank;
@@ -119,6 +126,12 @@ public class EmployeeIT {
             roleManaged.add(roles.get(i));
         }
         return roleManaged;
+    }
+
+    @Test
+    public void findEmailShouldReturnOneRow() {
+        Page<Employee> searchemp = employeeRepo.findAll(new PageRequest(0, 10));
+        Assertions.assertThat(searchemp.getTotalElements()).isEqualTo(1);
     }
 
 }

@@ -7,28 +7,47 @@
             </div>
         </div>
         <div class="panel-body">
-            <div class="panel panel-default">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Search : </label>
+                    <div class="col-md-4">
+                        <input class="form-control" ng-model="search.keyword" placeholder="Search"> 
+                    </div>
+                </div>
+            </div>
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">SearchBy : </label>
+                    <div class="col-md-2">
+                        <select class="form-control" ng-model="search.searchBy" ng-init="search.searchBy = 'Name'">
+                            <option value="Name">Name</option>
+                            <option value="Email">Email</option>
+                            <option value="Mobile">Mobile</option>
+                        </select>
+                    </div>
+                </div>    
+            </div>   
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2">
+                        <input type="submit" value="Search" class="btn btn-default" ng-click="searchEmployee()">
+                    </div>
+                </div>
+            </div>         
+                        
+                   
+            <div class="panel panel-default" style="margin-top: 20px;">
                 <div class="panel-heading">
                     Information
                 </div>
                 <div class="panel-body">
-                    <div class="form-inline col-md-7">
+                    <div class="form-inline">
                         <label>Pages : </label>
                         <select class="form-control">
                             <option value="10">10</option>
                             <option value="20">20</option>
                             <option value="50">50</option>
-                        </select>
-                    </div>
-                    <div class="form-inline">
-                        <label>Search : </label>
-                        <input class="form-control" style="margin-right: 10px">
-
-                        <label>SearchBy : </label>
-                        <select class="form-control">
-                            <option value="name">Name</option>
-                            <option value="email">Email</option>
-                            <option value="mobile">Mobile</option>
                         </select>
                     </div>
                     <div class="table-responsive" style="margin-top: 20px;">

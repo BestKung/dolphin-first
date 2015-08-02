@@ -26,18 +26,20 @@ angular.module('employee').controller('employeeController', function ($scope, $h
 
                 });
     }
+    
     $scope.compairPassword = function () {
         if ($scope.passwordMatches == "" || $scope.employee.password == "") {
-            return false;
+           return false;
         }
         if ($scope.passwordMatches == $scope.employee.password) {
             $('#checp-password').removeClass('glyphicon glyphicon-remove').addClass('glyphicon glyphicon-ok').css('color', '#64dd17');
             return true;
         }
-        if ($scope.passwordMatches != $scope.employee.password) {
+        else if ($scope.passwordMatches != $scope.employee.password) {
             $('#checp-password').removeClass('glyphicon glyphicon-ok').addClass('glyphicon glyphicon-remove').css('color', 'RED');
             return true;
         }
+        
     };
 
     $scope.saveEmployee = function () {

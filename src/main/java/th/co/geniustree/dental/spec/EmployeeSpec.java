@@ -29,6 +29,7 @@ public class EmployeeSpec {
         };
     }
 
+    
     public static Specification<Employee> emailLike(final String keyword) {
         return new Specification<Employee>() {
 
@@ -39,6 +40,7 @@ public class EmployeeSpec {
         };
     }
 
+    
     public static Specification<Employee> mobileLike(final String keyword) {
         return new Specification<Employee>() {
 

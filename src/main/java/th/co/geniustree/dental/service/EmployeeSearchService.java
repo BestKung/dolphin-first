@@ -30,12 +30,12 @@ public class EmployeeSearchService {
     }
     
     public Page<Employee> searchByEmail(String keyword , Pageable pageable){
-    Specifications<Employee> specification = Specifications.where(EmployeeSpec.emailLike(""+keyword+"%"));
+    Specifications<Employee> specification = Specifications.where(EmployeeSpec.emailLike("%"+keyword+"%"));
     return employeeRepo.findAll(specification, pageable);
     }
     
     public Page<Employee> searchByMobile(String keyword , Pageable pageable){
-    Specifications<Employee> specification = Specifications.where(EmployeeSpec.mobileLike(""+keyword+""));
+    Specifications<Employee> specification = Specifications.where(EmployeeSpec.mobileLike("%"+keyword+"%"));
     return employeeRepo.findAll(specification, pageable);
     }
 }
