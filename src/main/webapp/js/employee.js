@@ -1,10 +1,21 @@
 angular.module('employee', []);
-angular.module('employee').controller('employeeController', function ($scope, $http) {
-    $scope.authoritys = {};
-    $scope.departments = {};
-    $scope.employee = {};
-    $scope.passwordMatches = "";
+angular.module('employee').controller('employeeController', function (employeeService, $scope, $http) {
+    var service = employeeService.emp;
+    if (!service.id) {
+        service = {sex: 'Male', blood: 'A', marryStatus: 'Single', workStatus: 'Normal'};
+    }
+    ;
 
+    $scope.employee = service;
+    $scope.employee.sex = service.sex;
+    $scope.employee.blood = service.blood;
+    $scope.employee.marryStatus = service.marryStatus;
+    $scope.employee.workStatus = service.workStatus;
+    // $scope.employee.department = employeeService.emp.department;
+    $scope.departments = {};
+    $scope.authoritys = {};
+    $scope.passwordMatches = "";
+    var dep = {};
     getAuthority();
     function getAuthority() {
         $http.get('/authority')
@@ -21,15 +32,16 @@ angular.module('employee').controller('employeeController', function ($scope, $h
         $http.get('/depaerments')
                 .success(function (data) {
                     $scope.departments = data;
+                    dep = data;
                 })
                 .error(function (data) {
 
                 });
     }
-    
+
     $scope.compairPassword = function () {
         if ($scope.passwordMatches == "" || $scope.employee.password == "") {
-           return false;
+            return false;
         }
         if ($scope.passwordMatches == $scope.employee.password) {
             $('#checp-password').removeClass('glyphicon glyphicon-remove').addClass('glyphicon glyphicon-ok').css('color', '#64dd17');
@@ -39,22 +51,23 @@ angular.module('employee').controller('employeeController', function ($scope, $h
             $('#checp-password').removeClass('glyphicon glyphicon-ok').addClass('glyphicon glyphicon-remove').css('color', 'RED');
             return true;
         }
-        
+
     };
 
     $scope.saveEmployee = function () {
-        
-            $http.post('/saveemployee', $scope.employee)
-                    .success(function (data) {
-                        growl("Save Success", "success", 'buttom');
-                    })
-                    .error(function (data) {
-                        $scope.error = data;
-                        $('body,html').animate({scrollTop: 0}, "600");
-                        validateForm($scope.error);
-                    });
-        };
-    
+
+        $http.post('/saveemployee', $scope.employee)
+                .success(function (data) {
+                    growl("Save Success", "success", 'buttom');
+                    employeeService.emp = {};
+                })
+                .error(function (data) {
+                    $scope.error = data;
+                    $('body,html').animate({scrollTop: 0}, "600");
+                    validateForm($scope.error);
+                });
+    };
+
     $scope.clearError = function (elementValidator) {
         $(elementValidator).removeClass('has-error');
         $scope.error = {};
@@ -87,7 +100,7 @@ angular.module('employee').controller('employeeController', function ($scope, $h
             $('#currentaddress').attr('placeholder', data.violations.currentAddress.message);
         }
     };
-    
+
     $('.datepicker.form-control').datepicker({
         changeYear: true,
         yearRange: "-100:+100",

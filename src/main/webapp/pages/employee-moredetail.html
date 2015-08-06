@@ -1,0 +1,196 @@
+<div class="container">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="h1">
+                Employee Detail
+            </div>
+        </div>
+        <div class="panel-body">
+
+                        <div class="row">
+                            <div class="col-md-8"></div>
+                            <div class="col-md-4">
+                                <img class="img-responsive center-block" src="http://i.istockimg.com/file_thumbview_approve/50404602/3/stock-illustration-50404602-cartoon-penguin.jpg">
+                                <div class="col-md-7">
+                                    <input id="file" type="file" value="Upload">
+                                </div>
+                            </div>
+                        </div>
+
+            <div class="row" style="margin-top: 20px;">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label push-left-custom">ID : </label>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.id}}</div>
+                        <label class="col-md-2 control-label push-left-custom">Email : </label>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.email}}</div>
+                    </div> 
+                    <div class="form-group">
+                        <label class="col-md-3 control-label push-left-custom">Personal ID : </label>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.pid}}</div>
+                        <label class="col-md-2 control-label push-left-custom">Name Th : </label>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.nameTh}}</div>
+                    </div> 
+                    <div class="form-group">
+                        <label class="col-md-3 control-label push-left-custom">Name Eng : </label>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.nameEng}}</div>
+                        <label class="col-md-2 control-label push-left-custom">Birth Date : </label>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.birthDate}}</div>
+                    </div> 
+                    <div class="form-group">
+                        <label class="col-md-3 control-label push-left-custom">Age : </label>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{}}</div>
+                        <label class="col-md-2 control-label push-left-custom">Sex : </label>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.sex}}</div>
+                    </div> 
+                    <div class="form-group">
+                        <label class="col-md-3 control-label push-left-custom">Blood : </label>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.blood}}</div>
+                        <label class="col-md-2 control-label push-left-custom">Marry Status : </label>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.marryStatus}}</div>
+                    </div> 
+                    <div class="form-group">
+                        <label class="col-md-3 control-label push-left-custom">Nation : </label>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.nation}}</div>
+                        <label class="col-md-2 control-label push-left-custom">Race : </label>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.race}}</div>
+                    </div> 
+                    <div class="form-group">
+                        <label class="col-md-3 control-label push-left-custom">Soldier Status : </label>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.soldierStatus}}</div>
+                        <label class="col-md-2 control-label push-left-custom">Address Of PID : </label>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.addressOfPid}}</div>
+                    </div> 
+                    <div class="form-group">
+                        <label class="col-md-3 control-label push-left-custom">Current Address : </label>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.currentAddress}}</div>
+                        <label class="col-md-2 control-label push-left-custom">Tel : </label>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.tel}}</div>
+                    </div> 
+                    <div class="form-group">
+                        <label class="col-md-3 control-label push-left-custom">Mobile : </label>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.mobile}}</div>
+                        <label class="col-md-2 control-label push-left-custom">Department : </label>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.department.name}}</div>
+                    </div> 
+                    <div class="form-group">
+                        <label class="col-md-3 control-label push-left-custom">Start Work : </label>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.startWork}}</div>
+                        <label class="col-md-2 control-label push-left-custom">End Work : </label>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.endWork}}</div>
+                    </div> 
+                    <div class="form-group">
+                        <label class="col-md-3 control-label push-left-custom">Work Status : </label>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.workStatus}}</div>
+                    </div> 
+                </div>
+
+                <div class="row">
+                    <div class="container">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <div class="h3">
+                                        Authority
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="col-md-3 " ng-repeat="aut in employeeDetail.roles">
+                                        <label>{{aut.role}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 20px;">
+                    <div class="container">
+                        <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="h3">
+                                        Bank
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label push-left-custom">Bank Name :</label>
+                                            <div  class="label-control-custom push-left-custom">{{employeeDetail.bank.bankName}}</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label push-left-custom">Account Name :</label>
+                                            <div class="label-control-custom push-left-custom">{{employeeDetail.bank.accountName}} </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label push-left-custom">Account Number :</label>
+                                            <div class="label-control-custom push-left-custom">{{employeeDetail.bank.accountNumber}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="h3">
+                                        Contact
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label push-left-custom">Contact Name :</label>
+                                            <div  class="label-control-custom push-left-custom">{{employeeDetail.contact.name}} </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label push-left-custom">Relation :</label>
+                                            <div class="label-control-custom push-left-custom">{{employeeDetail.contact.relation}} </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label push-left-custom">Tel :</label>
+                                            <div class="label-control-custom push-left-custom">{{employeeDetail.contact.tel}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="row">
+                <div class="col-md-9"></div>
+                <div class="col-md-3">
+                    <input type="submit" value="Delete" class="btn btn-danger" ng-click="clickDelete(employeeDetail)" data-toggle="modal" data-target="#modal-delete-employee">
+                    <a href="#/employee" class="btn btn-primary" ng-click="clickUpdate(employeeDetail)">Update</a>
+                    <a href="#/employee/information" class="btn btn-default" data-dismiss="modal">Black</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-delete-employee">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background: tomato;border-radius: 5px;color: white;">
+                <button class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>Delete Employee</h4>
+            </div>
+            <div class="modal-body">
+                <div class="h3">
+                    Confirm Delete
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn" value="Cancle" data-dismiss="modal">
+                <a href="" class="btncustom btn-custom-delete" data-dismiss="modal" ng-click="deleteEmployee()">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -23,7 +23,7 @@ a.button{
     background: white;
     color: #03a9f4;
     border-bottom: 2px solid #03a9f4;
-   
+
 }
 .nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
     background: white;
@@ -63,3 +63,30 @@ a.topic.dropdown{
 .r{
     background: red;
 }
+.page:hover{
+    background: #03a9f4;
+    color: white;
+}
+.pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover{
+    background: #03a9f4;
+    color: white;
+}
+#more-detail:hover{
+    color: #337ab7;
+    text-decoration: underline;
+}
+.set-width{
+    max-width: 100px;
+}
+.concat{
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: inherit;
+}
+.push-left-custom{
+   margin-left: 10px; 
+   
+}
+

@@ -35,8 +35,8 @@
                     </div>
                 </div>
             </div>         
-                        
-                   
+
+
             <div class="panel panel-default" style="margin-top: 20px;">
                 <div class="panel-heading">
                     Information
@@ -44,7 +44,7 @@
                 <div class="panel-body">
                     <div class="form-inline">
                         <label>Pages : </label>
-                        <select class="form-control">
+                        <select class="form-control" ng-model="totalRow" ng-init="totalRow = '10'" ng-change="loadEmployees()">
                             <option value="10">10</option>
                             <option value="20">20</option>
                             <option value="50">50</option>
@@ -54,33 +54,35 @@
                         <table class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Mobile</th>
-                                    <th>Department</th>
-                                    <th>Work Status</th>
+                                    <th style="width: 60px;">ID</th>
+                                    <th style="width: 200px;">Name</th>
+                                    <th style="width: 250px;">Email</th>
+                                    <th style="width: 150px;">Mobile</th>
+                                    <th style="width: 180px;">Department</th>
+                                    <th style="width: 120px;">Work Status</th>
+                                    <th style="width: 115px;">More Detail</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="employee in employees.content">
+                                <tr ng-repeat="employee in employees.content" >
                                     <td>{{employee.id}}</td>
-                                    <td>{{employee.nameTh}}</td>
+                                    <td class="set-width concat">{{employee.nameTh}}</td>
                                     <td>{{employee.email}}</td>
                                     <td>{{employee.mobile}}</td>
                                     <td>{{employee.department.name}}</td>
                                     <td>{{employee.workStatus}}</td>
+                                    <td><a href="#/employee/moredetail" id="more-detail" ng-click="getEmployeeDetail(employee)">More Detail</a></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
 
                     <ul class="pagination pull-right">
-                        <li><a href="" class="pag">&Lt;</a></li>
-                        <li><a href="">&LT;</a></li>
-                        <li class="disabled"><a href="">0</a></li>
-                        <li><a href="">&GT;</a></li>
-                        <li><a href="">&Gt;</a></li>
+                        <li id="first-page" class="page" ng-click="firstPage()"><a href="">&Lt;</a></li>
+                        <li id="pre-page"  class="page" ng-click="prePage()"><a href="">&LT;</a></li>
+                        <li class="disabled"><a href="">{{page + 1}}</a></li>
+                        <li id="next-page" class="page" ng-click="nextPage()"><a href="">&GT;</a></li>
+                        <li id="final-page" class="page" ng-click="finalPage()"><a href="">&Gt;</a></li>
                     </ul>
 
                 </div>
@@ -88,6 +90,29 @@
         </div>
     </div>
 </div>
+<!--
+<div class="modal fade" id="modal-moredetail">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+                <h4>More Detail</h4>
+        </div>
+            <div class="modal-body">
+                <div class="h2">
+                    More Detail : {{employeeMoreDetail.nameTh}}
+                </div>
+            </div>
+            <div class="modal-footer">
+               <button class="btn" data-dismiss="modal">Cancel </button>
+               <input type="submit" value="Ok" id="gomoerdetail">  
+             </div>
+    </div>
+</div>
+    </div>-->
+
 
 
 

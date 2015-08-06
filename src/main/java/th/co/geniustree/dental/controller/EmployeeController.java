@@ -5,7 +5,6 @@
  */
 package th.co.geniustree.dental.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -30,11 +29,11 @@ public class EmployeeController {
     @Autowired
     private EmployeeRepo employeeRepo;
     private EmployeeSearchService employeeSearchService;
+    private Integer employeeDetail;
 
     @RequestMapping(value = "/saveemployee", method = RequestMethod.POST)
-    public Long saveEmployee(@Validated @RequestBody Employee employee) {
+    public void saveEmployee(@Validated @RequestBody Employee employee) {
         employeeRepo.save(employee);
-        return employeeRepo.count();
     }
 
     @RequestMapping(value = "/employees", method = RequestMethod.GET)
@@ -42,28 +41,45 @@ public class EmployeeController {
         return employeeRepo.findAll(pageable);
     }
 
+    @RequestMapping(value = "/deleteemployee", method = RequestMethod.POST)
+    public void deleteEmployee(@RequestBody Integer employeeID) {
+        employeeRepo.delete(employeeID);
+        employeeDetail = null;
+    }
+
+    @RequestMapping(value = "/employeedetail", method = RequestMethod.POST)
+    public Employee EmployeeDetail(@RequestBody Employee employee) {
+        if (employee.getId() != null) {
+            employeeDetail = employee.getId();
+        }
+        return employeeRepo.findOne(employeeDetail);
+    }
+
+    @RequestMapping(value = "/employees/count", method = RequestMethod.GET)
+    public Long countEmployees() {
+        return employeeRepo.count();
+    }
+
     @RequestMapping(value = "/employeesearch", method = RequestMethod.POST)
     public Page<Employee> searchEmployee(@RequestBody SearchData searchData, Pageable pageable) {
         String keyword = searchData.getKeyword();
         String searchBy = searchData.getSearchBy();
-        System.out.println("----------------------------------------------------------->"+keyword);
-        System.out.println("----------------------------------------------------------->"+searchBy);
+        System.out.println("----------------------------------------------------------->" + keyword);
+        System.out.println("----------------------------------------------------------->" + searchBy);
         Page<Employee> searchEmp = null;
         if (searchBy.equals("Name")) {
-           System.out.println("-----------------------------------------------------------> Name");
-            searchEmp =  employeeSearchService.searchByName(keyword, pageable);
+            System.out.println("-----------------------------------------------------------> Name");
+            searchEmp = employeeSearchService.searchByName(keyword, pageable);
         }
         if (searchBy.equals("Email")) {
-           System.out.println("-----------------------------------------------------------> Email"+employeeSearchService.searchByEmail(keyword, new PageRequest(0, 10)));
-           searchEmp =  employeeSearchService.searchByEmail(keyword, pageable);
-         }
+            System.out.println("-----------------------------------------------------------> Email");
+            searchEmp = employeeSearchService.searchByEmail(keyword, pageable);
+        }
         if (searchBy.equals("Mobile")) {
             System.out.println("-----------------------------------------------------------> Mobile");
-            searchEmp =  employeeSearchService.searchByMobile(keyword, pageable);
+            searchEmp = employeeSearchService.searchByMobile(keyword, pageable);
         }
         return searchEmp;
     }
 
-   
-  
 }

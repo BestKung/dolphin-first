@@ -9,7 +9,7 @@ angular.module('department').controller('departmentController', function ($scope
     loadDepartment();
 
     function loadDepartment() {
-        $http.get('/depaerments',{params:{page:0,size:50,}})
+        $http.get('/depaerments', {params: {page: 0, size: 50, }})
                 .success(function (data) {
                     $scope.departments = data;
                 }).error(function (data) {
@@ -29,8 +29,8 @@ angular.module('department').controller('departmentController', function ($scope
             return true;
         }
     }
-    $scope.actionUpdate = function (id, name) {
-        $scope.department = {'id': id, 'name': name};
+    $scope.actionUpdate = function (dep) {
+        $scope.department = dep;
         $('body,html').animate({scrollTop: 0}, "600");
     };
 
@@ -42,7 +42,7 @@ angular.module('department').controller('departmentController', function ($scope
                         growl('Save Success', 'success', 'buttom');
                         $scope.department = {};
                     }).error(function (data) {
-                
+
             });
         }
 
@@ -62,10 +62,6 @@ angular.module('department').controller('departmentController', function ($scope
 
                 });
     };
-
-
-
-
 });
 
 

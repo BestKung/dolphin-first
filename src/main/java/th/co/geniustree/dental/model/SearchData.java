@@ -5,10 +5,13 @@
  */
 package th.co.geniustree.dental.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  *
  * @author best
  */
+
 public class SearchData {
     
     private String keyword;

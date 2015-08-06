@@ -10,7 +10,7 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label">ID : </label>
                     <div class="col-md-3">
-                        <input class="form-control" disabled placeholder="ID">
+                        <input class="form-control" disabled placeholder="ID" ng-model="employee.id">
                     </div>
 
                     <label class="col-md-2 control-label"><span class="necessary">*</span> E-mail : </label>
@@ -57,7 +57,7 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label">Sex : </label>
                     <div class="col-md-3">
-                        <select class="form-control" ng-model="employee.sex" ng-init="employee.sex = 'Male'">
+                        <select class="form-control" ng-model="employee.sex">
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                         </select>
@@ -65,7 +65,7 @@
 
                     <label class="col-md-2 control-label" > Blood : </label>
                     <div class="col-md-3">
-                        <select class="form-control" ng-model="employee.blood" ng-init="employee.blood = 'A'">
+                        <select class="form-control" ng-model="employee.blood">
                             <option value="A">A</option>
                             <option value="B">B</option>
                             <option value="O">O</option>
@@ -75,7 +75,7 @@
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label">Marry Status : </label>
-                    <div class="col-md-3" ng-init="employee.marryStatus = 'Single'">
+                    <div class="col-md-3">
                         <select class="form-control" ng-model="employee.marryStatus" value="Single">
                             <option value="Single">Single</option>
                             <option value="Married">Married</option>
@@ -142,7 +142,7 @@
                     </div>
 
                     <label class="col-md-2 control-label"> Work Status : </label>
-                    <div class="col-md-3" ng-init="employee.workStatus = 'Normal'">
+                    <div class="col-md-3">
                         <select class="form-control" ng-model="employee.workStatus">
                             <option value="Normal">Nomal</option>
                             <option value="Suspension">Suspension</option>
@@ -150,7 +150,7 @@
                         </select>
                     </div>
                 </div>
-                
+
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="h1">
@@ -163,14 +163,14 @@
                         </div>
                     </div>
                 </div> 
-            <div class="panel">
-                <div class="panel-heading">
-                    <div class="h1">
-                        Bank
-                    </div>
-                </div>  
-                <div class="panel-body">
-                    <div class="form-group">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="h1">
+                            Bank
+                        </div>
+                    </div>  
+                    <div class="panel-body">
+                        <div class="form-group">
                             <label class="col-md-2 control-label">Bank Name : </label>
                             <div class="col-md-3">
                                 <input class="form-control" ng-model="employee.bank.bankName" placeholder="Bank Name">
@@ -189,14 +189,14 @@
                         </div>
                     </div>
                 </div>
-            <div class="panel">
-                <div class="panel-heading">
-                    <div class="h1">
-                        Contact
-                    </div>
-                </div>  
-                <div class="panel-body">
-                    <div class="form-group">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="h1">
+                            Contact
+                        </div>
+                    </div>  
+                    <div class="panel-body">
+                        <div class="form-group">
                             <label class="col-md-2 control-label">Name : </label>
                             <div class="col-md-3">
                                 <input class="form-control" ng-model="employee.contact.name" placeholder="Contact Name">
@@ -206,19 +206,19 @@
                             <div class="col-md-3">
                                 <input class="form-control" ng-model="employee.contact.relation" placeholder="Relation">
                             </div>
-                             <div id="growl-custom"></div>
+                            <div id="growl-custom"></div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label">Tel : </label>
                             <div class="col-md-3">
                                 <input class="form-control" ng-model="employee.contact.tel" placeholder="Tel">
                             </div>
-                         </div>
+                        </div>
                     </div>
                 </div>
-            <div class="col-md-offset-11">
-                <button type="submit" class="btn btn-success" ng-click="saveEmployee()">Save</button>
-            </div>
+                <div class="col-md-offset-11">
+                    <button type="submit" class="btn btn-success" ng-click="saveEmployee()">Save</button>
+                </div>
             </div>
         </div>
     </div>

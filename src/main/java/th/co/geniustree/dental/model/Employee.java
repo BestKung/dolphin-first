@@ -36,7 +36,7 @@ public class Employee implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     
-    @Column(name = "EMAIL", nullable = false, unique = true)
+    @Column(name = "EMAIL", nullable = false)
     @NotBlank(message = "E-mail not Empty")
     @Email(message = "example@example.com")
     private String email;
