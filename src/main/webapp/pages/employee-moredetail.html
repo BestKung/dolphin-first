@@ -39,7 +39,7 @@
                     </div> 
                     <div class="form-group">
                         <label class="col-md-3 control-label push-left-custom">Age : </label>
-                        <div class="col-md-3 label-control-custom push-left-custom">{{}}</div>
+                        <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.age}}</div>
                         <label class="col-md-2 control-label push-left-custom">Sex : </label>
                         <div class="col-md-3 label-control-custom push-left-custom">{{employeeDetail.sex}}</div>
                     </div> 
@@ -164,7 +164,7 @@
                 <div class="col-md-3">
                     <input type="submit" value="Delete" class="btn btn-danger" ng-click="clickDelete(employeeDetail)" data-toggle="modal" data-target="#modal-delete-employee">
                     <a href="#/employee" class="btn btn-primary" ng-click="clickUpdate(employeeDetail)">Update</a>
-                    <a href="#/employee/information" class="btn btn-default" data-dismiss="modal">Black</a>
+                    <a href="#/employee/information" class="btn btn-default" data-dismiss="modal" ng-click="clearService()">Black</a>
                 </div>
             </div>
         </div>

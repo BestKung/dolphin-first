@@ -126,7 +126,7 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label">Department : </label>
                     <div class="col-md-3">
-                        <select  class="form-control" ng-model="employee.department" ng-options="dep.name for dep in departments.content">
+                        <select  class="form-control" ng-init="employee.department" ng-model="employee.department" ng-options="dep.name for dep in departments.content track by dep.id">
                         </select>
                     </div>    
 

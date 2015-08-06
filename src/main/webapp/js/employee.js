@@ -4,18 +4,18 @@ angular.module('employee').controller('employeeController', function (employeeSe
     if (!service.id) {
         service = {sex: 'Male', blood: 'A', marryStatus: 'Single', workStatus: 'Normal'};
     }
-    ;
 
     $scope.employee = service;
     $scope.employee.sex = service.sex;
     $scope.employee.blood = service.blood;
     $scope.employee.marryStatus = service.marryStatus;
     $scope.employee.workStatus = service.workStatus;
-    // $scope.employee.department = employeeService.emp.department;
     $scope.departments = {};
     $scope.authoritys = {};
     $scope.passwordMatches = "";
-    var dep = {};
+
+
+    getDepartment();
     getAuthority();
     function getAuthority() {
         $http.get('/authority')
@@ -27,18 +27,25 @@ angular.module('employee').controller('employeeController', function (employeeSe
                 });
     }
 
-    getDepartment();
+    
     function getDepartment() {
         $http.get('/depaerments')
                 .success(function (data) {
                     $scope.departments = data;
-                    dep = data;
                 })
                 .error(function (data) {
 
                 });
     }
 
+    $scope.getDepartment = function (index) {
+        $http.get('/depaerments')
+                .success(function (data) {
+                    return data.content[index];
+                  
+                });
+    };
+    console.log($scope.authoritys);
     $scope.compairPassword = function () {
         if ($scope.passwordMatches == "" || $scope.employee.password == "") {
             return false;
@@ -55,11 +62,12 @@ angular.module('employee').controller('employeeController', function (employeeSe
     };
 
     $scope.saveEmployee = function () {
-
+        console.log($scope.employee);
         $http.post('/saveemployee', $scope.employee)
                 .success(function (data) {
                     growl("Save Success", "success", 'buttom');
                     employeeService.emp = {};
+                    console.log($scope.employee);
                 })
                 .error(function (data) {
                     $scope.error = data;
@@ -99,7 +107,8 @@ angular.module('employee').controller('employeeController', function (employeeSe
             $('.currentaddress').addClass('has-error');
             $('#currentaddress').attr('placeholder', data.violations.currentAddress.message);
         }
-    };
+    }
+    ;
 
     $('.datepicker.form-control').datepicker({
         changeYear: true,

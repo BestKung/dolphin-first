@@ -6,6 +6,8 @@
 package th.co.geniustree.dental.model;
 
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -23,6 +25,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  *
@@ -30,7 +35,7 @@ import org.hibernate.validator.constraints.NotBlank;
  */
 @Entity
 @Table(name = "EMPLOYEE")
-public class Employee implements Serializable {
+public class Employee implements Serializable,UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -94,7 +99,7 @@ public class Employee implements Serializable {
     @Column(name = "WORK_STATUS")
     private String workStatus;
    
-    @Column(name = "PICTURE")
+    @Column(name = "ENABLE")
     private boolean enable;
 
     @ManyToOne
@@ -347,6 +352,36 @@ public class Employee implements Serializable {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Collections.singletonList(new SimpleGrantedAuthority("ADMIN"));
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+       return enable;
     }
 
 }

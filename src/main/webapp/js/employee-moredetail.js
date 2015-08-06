@@ -1,12 +1,18 @@
 angular.module('employeemoredetail', []);
 angular.module('employeemoredetail').controller('employeeMoreDetailController', function (employeeService, $scope, $http) {
 
+var dateToDay = new Date();
+var yearToDay = dateToDay.getFullYear();
+
     $scope.employee = {};
      $scope.employeeDetail = {};
+    
     loadEmployeeDetail();
+     
     function loadEmployeeDetail() {
         $http.post('/employeedetail', employeeService.emp).success(function (data) {
             $scope.employeeDetail = data;
+            $scope.employeeDetail.age = (yearToDay - new Date($scope.employeeDetail.birthDate).getFullYear());
         });
     }
 
@@ -29,6 +35,10 @@ angular.module('employeemoredetail').controller('employeeMoreDetailController', 
 
 $scope.clickUpdate = function (employeeDetail){
     employeeService.emp = employeeDetail;
+};
+
+$scope.clearService = function (){
+    employeeService.emp = {};
 };
 
 });

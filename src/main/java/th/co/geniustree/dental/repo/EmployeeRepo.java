@@ -18,6 +18,6 @@ import th.co.geniustree.dental.model.Employee;
  */
 public interface EmployeeRepo extends JpaRepository<Employee, Integer> , JpaSpecificationExecutor<Employee>{
 
-    public Page<Employee> findByEmail(String email , Pageable pageable);
+    public Employee findByEmail(String email);
     
 }
