@@ -25,8 +25,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private CustomEmployeeLoginService customEmployeeLoginService;
 
-      
-
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(customEmployeeLoginService);
@@ -41,6 +39,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .logout()
+                .logoutUrl("/logout")
+                .deleteCookies("JSESSIONID")
                 .and()
                 .authorizeRequests().anyRequest().authenticated();
     }

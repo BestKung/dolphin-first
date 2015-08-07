@@ -1,19 +1,41 @@
 
 var app = angular.module('app', ['ngRoute', 'employee', 'employeeInformation', 'department', 'Customer', 'employeemoredetail']);
+
 app = angular.module('app');
 
 app.controller('homeController', function ($scope, $http) {
-
+ var login = $scope.namelogin;
     $scope.namelogin = {};
     loadName();
-    function loadName(){
-        $http.get('/startpage').success(function (data){
+    function loadName() {
+        $http.get('/startpage').success(function (data) {
             $scope.namelogin = data;
             console.log(data);
-        }).error(function (data){});
+        }).error(function (data) {
+        });
     }
+    loadCheckLogin();
+    function loadCheckLogin() {
+       if (login != "") {
+            $('#btn-login').html('Logout').removeClass('btn-custom-sky').addClass('btn-custom-logout');
+        }
+        else {
+            $('#btn-login').html('Login').removeClass('.btn-custom-logout').addClass('.btn-custom-sky');
+        }
+        
+        $scope.loginhref = function (){
+             if (login != "") {
+                 location.href = '/logout';
+             }
+             else{
+                 location.href = '/login';
+             }
+        };
+    };
+    
+    
+    
 });
-
 app.config(function ($routeProvider) {
 
     $routeProvider.when('/', {
@@ -46,11 +68,9 @@ app.config(function ($routeProvider) {
     }).otherwise({
         redirectTo: '/'
     });
-
 });
-
-app.factory('employeeService', function() {  
-	return {
-		emp : {}
-	};
+app.factory('employeeService', function () {
+    return {
+        emp: {}
+    };
 });

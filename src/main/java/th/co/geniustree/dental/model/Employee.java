@@ -357,7 +357,7 @@ public class Employee implements Serializable,UserDetails{
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singletonList(new SimpleGrantedAuthority("ADMIN"));
+        return Collections.emptySet();
     }
 
     @Override

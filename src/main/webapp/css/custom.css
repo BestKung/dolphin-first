@@ -43,7 +43,20 @@
     margin-bottom: 0;
     text-align: right;
 }
-.file{
-    text-align: center;
+.btn-custom-logout{
+    padding: 5px 15px ;
+    background: #ef5350;
+    color: white;
+    border-radius: 5px;
 }
-
+.btn-custom-logout:hover{
+    background: #f44336;
+    cursor: pointer;
+}
+.btn-custom-logout:active{
+    position: relative;
+    top: 2px;
+}
+.btn-border{
+    border: 2px white solid;
+}

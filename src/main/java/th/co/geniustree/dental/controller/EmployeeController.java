@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
@@ -41,6 +42,7 @@ public class EmployeeController {
 
     @RequestMapping(value = "/saveemployee", method = RequestMethod.POST)
     public void saveEmployee(@Validated @RequestBody Employee employee) {
+        employee.setEnable(true);
         employeeRepo.save(employee);
     }
 
@@ -54,12 +56,15 @@ public class EmployeeController {
         employeeRepo.delete(employeeID);
         employeeDetail = null;
     }
-
-    @RequestMapping(value = "/employeedetail", method = RequestMethod.POST)
-    public Employee EmployeeDetail(@RequestBody Employee employee) {
+     
+    @RequestMapping(value = "/employee/detail", method = RequestMethod.POST)
+    public Employee EmployeeDetail(@RequestBody final Employee employee) {
         if (employee.getId() != null) {
             employeeDetail = employee.getId();
+            System.out.println("------------------------------------------------------------>"+employee.getEmail());
+            System.out.println("------------------------------------------------------------>"+employeeDetail);
         }
+        System.out.println("------------------------------------------------------------>"+employee.getEmail());
         return employeeRepo.findOne(employeeDetail);
     }
 
