@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +32,12 @@ public class EmployeeController {
     private EmployeeRepo employeeRepo;
     private EmployeeSearchService employeeSearchService;
     private Integer employeeDetail;
+
+    @RequestMapping(value = "/startpage", method = RequestMethod.GET)
+    public Employee getCurrentLogin() {
+        Employee employee = (Employee) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return employeeRepo.findByEmail(employee.getEmail());
+    }
 
     @RequestMapping(value = "/saveemployee", method = RequestMethod.POST)
     public void saveEmployee(@Validated @RequestBody Employee employee) {

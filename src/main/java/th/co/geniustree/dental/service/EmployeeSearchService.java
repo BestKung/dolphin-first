@@ -38,4 +38,9 @@ public class EmployeeSearchService {
     Specifications<Employee> specification = Specifications.where(EmployeeSpec.mobileLike("%"+keyword+"%"));
     return employeeRepo.findAll(specification, pageable);
     }
+    
+    public Page<Employee> searchByEmailAndPassword(String email , String password , Pageable pageable){
+    Specifications<Employee> specification = Specifications.where(EmployeeSpec.emailAndPasswordLike(email, password));
+    return employeeRepo.findAll(specification, pageable);
+    }
 }

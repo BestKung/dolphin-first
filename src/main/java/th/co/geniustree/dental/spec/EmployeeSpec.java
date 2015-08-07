@@ -50,5 +50,15 @@ public class EmployeeSpec {
             }
         };
     }
+    
+    public static Specification<Employee> emailAndPasswordLike(final String email , final String password){
+    return new Specification<Employee>() {
+
+        @Override
+        public Predicate toPredicate(Root<Employee> root, CriteriaQuery<?> cq, CriteriaBuilder cb) {
+            return cb.and(cb.like(cb.upper(root.get(Employee_.email)), email.toUpperCase()),cb.like(root.get(Employee_.password), password));
+        }
+    };
+    }
 
 }

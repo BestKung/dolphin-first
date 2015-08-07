@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import th.co.geniustree.dental.service.CustomEmployeeLoginService;
 
 /**
  * @author pramoth
@@ -21,20 +22,21 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 @EnableGlobalMethodSecurity(prePostEnabled = true , securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    
+    @Autowired
+    private CustomEmployeeLoginService customEmployeeLoginService;
 
       
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-       // auth.userDetailsService(customUserDetailService);
+        auth.userDetailsService(customEmployeeLoginService);
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().formLogin()
-                .loginPage("/login.html")
-                .loginProcessingUrl("/mylogin").usernameParameter("username").passwordParameter("password")
+                .loginPage("/pages/login.html")
+                .loginProcessingUrl("/login").usernameParameter("email").passwordParameter("password")
                 .defaultSuccessUrl("/index.html")
                 .permitAll()
                 .and()

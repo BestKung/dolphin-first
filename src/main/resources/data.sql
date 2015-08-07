@@ -32,5 +32,5 @@ INSERT INTO MEDICALHISTORY(DISEASE) values('Hepatitis');
 INSERT INTO MEDICALHISTORY(DISEASE) values('Losers drug history');
 
 
-INSERT INTO EMPLOYEE(email,password,CURRENT_ADDRESS,name_th,mobile) values('best1@best','1234','xxxxxxxxxxxxxxxx',
-'best','0987654321');
+INSERT INTO EMPLOYEE(email,password,CURRENT_ADDRESS,name_th,mobile,enable) values('best@best','1234','xxxxxxxxxxxxxxxx',
+'best','0987654321',1);

@@ -28,6 +28,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  *
@@ -35,7 +36,7 @@ import org.springframework.security.core.userdetails.UserDetails;
  */
 @Entity
 @Table(name = "EMPLOYEE")
-public class Employee implements Serializable,UserDetails {
+public class Employee implements Serializable,UserDetails{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -383,5 +384,7 @@ public class Employee implements Serializable,UserDetails {
     public boolean isEnabled() {
        return enable;
     }
+
+    
 
 }

@@ -28,6 +28,10 @@ public class CustomEmployeeLoginService  implements UserDetailsService{
         
         Employee employee = employeeRepo.findByEmail(string);
         
+        if(employee == null){
+        throw new UsernameNotFoundException("Email Not Fond!");
+        }
+        
         return employee;
         
     }
