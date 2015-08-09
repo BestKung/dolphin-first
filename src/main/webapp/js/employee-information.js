@@ -1,6 +1,6 @@
 var app = angular.module('employeeInformation', []);
 angular.module('employeeInformation').controller('employeeInformationController', function (employeeService, $scope, $http) {
-    
+
     $scope.employees = {};
     $scope.search = {};
     $scope.page = 0;
@@ -45,8 +45,8 @@ angular.module('employeeInformation').controller('employeeInformationController'
         $http.post('/employeesearch', $scope.search)
                 .success(function (data) {
                     $scope.employees = data;
-                    loadEmployees();
-                })
+                    console.log(data+'ddddddddddddddddd')
+                  })
                 .error(function (data) {
 
                 });
@@ -110,5 +110,5 @@ angular.module('employeeInformation').controller('employeeInformationController'
 
     $scope.getEmployeeDetail = function (employee) {
         employeeService.emp = employee;
-   };
+    };
 });

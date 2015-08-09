@@ -31,7 +31,8 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeRepo employeeRepo;
-    private EmployeeSearchService employeeSearchService;
+    @Autowired
+    private EmployeeSearchService employeeSearchService ;
     private Integer employeeDetail;
 
     @RequestMapping(value = "/startpage", method = RequestMethod.GET)
@@ -96,3 +97,5 @@ public class EmployeeController {
     }
 
 }
+
+
