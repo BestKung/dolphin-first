@@ -50,6 +50,7 @@ public class Employee implements Serializable,UserDetails{
     @Column(name = "PASSWORD", nullable = false)
     @NotBlank(message = "Password not Empty")
     private String password;
+    @Column(name = "PERSONAL_ID")
     private String pid;
    
     @Column(name = "NAME_TH", nullable = false)
@@ -65,11 +66,14 @@ public class Employee implements Serializable,UserDetails{
    
     @Column(name = "SEX")
     private String sex;
+    @Column(name = "BLOOD")
     private String blood;
    
     @Column(name = "MARRY_STATUS")
     private String marryStatus;
+    @Column(name = "NATION")
     private String nation;
+    @Column(name = "RACE")
     private String race;
    
     @Column(name = "SOLDER_STATUS")

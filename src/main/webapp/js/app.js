@@ -1,5 +1,5 @@
 
-var app = angular.module('app', ['ngRoute', 'employee', 'employeeInformation', 'department', 'Customer', 'employeemoredetail']);
+var app = angular.module('app', ['ngRoute', 'employee', 'employeeInformation', 'department', 'Customer', 'employeemoredetail' , 'doctor']);
 
 app = angular.module('app');
 
@@ -65,7 +65,11 @@ app.config(function ($routeProvider) {
     }).when('/employee/moredetail', {
         controller: 'employeeMoreDetailController',
         templateUrl: 'pages/employee-moredetail.html'
-    }).otherwise({
+    }).when('/doctor' , {
+        controller: 'doctorController',
+        templateUrl: 'pages/doctor.html'
+    })
+            .otherwise({
         redirectTo: '/'
     });
 });

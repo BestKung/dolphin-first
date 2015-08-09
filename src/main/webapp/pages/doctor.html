@@ -1,0 +1,121 @@
+<div class="container">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="h1">
+                Doctor
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">ID : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" disabled>
+                    </div>
+
+                    <label class="col-md-2 control-label">Personal ID : </label>
+                    <div class="col-md-3 email" >
+                        <input class="form-control" ng-model="doctor.pid">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Cer No : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="doctor.cerNo">
+                    </div>
+
+                    <label class="col-md-2 control-label">Cer Type : </label>
+                    <div class="col-md-3 email" >
+                        <input class="form-control" ng-model="doctor.cerType">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Name TH : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="doctor.nameTh">
+                    </div>
+
+                    <label class="col-md-2 control-label">Name Eng : </label>
+                    <div class="col-md-3 email" >
+                        <input class="form-control" ng-model="doctor.nameEng">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Birth Date : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="doctor.birthDate">
+                    </div>
+
+                    <label class="col-md-2 control-label">Sex : </label>
+                    <div class="col-md-3 email" >
+                        <input class="form-control" ng-model="doctor.sex">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Blood : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="doctor.blood">
+                    </div>
+
+                    <label class="col-md-2 control-label">Tel : </label>
+                    <div class="col-md-3 email" >
+                        <input class="form-control" ng-model="doctor.tel">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Mobile : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="doctor.mobile">
+                    </div>
+
+                    <label class="col-md-2 control-label">Email : </label>
+                    <div class="col-md-3 email" >
+                        <input class="form-control" ng-model="doctor.email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Work Status : </label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-model="doctor.workStatus">
+                    </div>
+
+                    <label class="col-md-2 control-label">Detail : </label>
+                    <div class="col-md-3 email" >
+                        <input class="form-control" ng-model="doctor.detail">
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="h2">
+                            Bank
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Bank Name : </label>
+                            <div class="col-md-3">
+                                <input class="form-control" ng-model="doctor.bank.bankName">
+                            </div>
+
+                            <label class="col-md-2 control-label">Account Name : </label>
+                            <div class="col-md-3 email" >
+                                <input class="form-control" ng-model="doctor.bank.accountName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Account Number : </label>
+                            <div class="col-md-3">
+                                <input class="form-control" ng-model="doctor.bank.accountNumber">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-offset-11">
+                        <input type="submit" class="btn btn-success" value="Save" ng-click="saveDoctor()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
